@@ -3,13 +3,13 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ MESSIE OSANGO ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
+const doNotDelete = "[ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
 
 module.exports = {
   config: {
     name: "help",
     version: "1.17",
-    author: "MESSIE OSANGO", // original author Kshitiz 
+    author: "𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂", // original author Kshitiz 
     countDown: 10,
     role: 0,
     shortDescription: {
@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `╔═══════════╗\n✰ MESSIE OSANGO ✰\n╚═══════════╝`; // replace with your name 
+      msg += `╔═══════════╗\n✰ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ✰\n╚═══════════╝`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -50,7 +50,7 @@ module.exports = {
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
-            const cmds = names.slice(i, i + 3).map((item) => `⚡${item}`);
+            const cmds = names.slice(i, i + 3).map((item) => `✯${item}`);
             msg += `\n│ ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
@@ -59,10 +59,10 @@ module.exports = {
       });
 
       const totalCommands = commands.size;
-      msg += `\ CONTACT MESSIE OSANGO PAGE
+      msg += `\ CONTACT 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 compte 
   FACEBOOK: 
   https://www.facebook.com/profile.php?id=61564382117276 \n`;
-      msg += ` | MESSIE OSANGO |`; // Voici la liste de mes cmds.
+      msg += ` | 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂✯ |`; // Voici la liste de mes cmds.
 
       await message.reply(msg);
     } else {
