@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `╔═══════════╗\n✰ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ✰\n╚═══════════╝`; // replace with your name 
+      msg += `╔══════✯═════╗\n✰ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ✰\n╚═════✯══════╝`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -46,7 +46,7 @@ module.exports = {
 
       Object.keys(categories).forEach((category) => {
         if (category !== "info") {
-          msg += `\n╭─────────\n│ 『  ${category.toUpperCase()}  』`;
+          msg += `\n╭─────✯────\n│ 『  ${category.toUpperCase()}  』`;
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
@@ -54,14 +54,16 @@ module.exports = {
             msg += `\n│ ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
-          msg += `\n╰────────ꔪ`;
+          msg += `\n╰────✯────ꔪ`;
         }
       });
 
       const totalCommands = commands.size;
-      msg += `\ CONTACT 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 compte 
-  FACEBOOK: 
-  https://www.facebook.com/profile.php?id=61564382117276 \n`;
+      msg += `\ CONTACT 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂  page   FACEBOOK: 
+
+https://www.facebook.com/profile.php?id=61568305950691  
+\n`;
+
       msg += ` | 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂✯ |`; // Voici la liste de mes cmds.
 
       await message.reply(msg);
@@ -115,4 +117,4 @@ function roleTextToString(roleText) {
     default:
       return "Unknown role";
   }
-}
+    }
