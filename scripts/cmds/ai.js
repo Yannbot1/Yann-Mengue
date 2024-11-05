@@ -15,8 +15,7 @@ async function getAIResponse(input, userName, userId, messageID) {
  { url: 'https://ai-chat-gpt-4-lite.onrender.com/api/hercai', params: { question: input } }
  ];
 
- let response = ` 𝑠𝑎𝑙𝑢𝑡, 𝑗𝑒 𝑠𝑢𝑖𝑠 𝑙'𝑖𝑛𝑡𝑒𝑙𝑙𝑖𝑔𝑒𝑛𝑐𝑒 𝑎𝑟𝑡𝑖𝑓𝑖𝑐𝑖𝑒𝑙𝑙𝑒 𝐶𝑂𝑁Ç𝑈𝐸 𝑝𝑎𝑟 𝐴𝑅𝐼𝐸𝐿 𝑆𝐴𝑌𝐸 
-𝑃𝑜𝑠𝑒𝑧 𝑣𝑜𝑡𝑟𝑒 𝑞𝑢𝑒𝑠𝑡𝑖𝑜𝑛 ! `;
+ let response = ` 𝑆𝑎𝑙𝑢𝑡, 𝑗𝑒 𝑠𝑢𝑖𝑠 𝑙'𝑖𝑛𝑡𝑒𝑙𝑙𝑖𝑔𝑒𝑛𝑐𝑒 𝐴𝑟𝑡𝑖𝑓𝑖𝑐𝑖𝑒𝑙𝑙𝑒 𝐶𝑂𝑁Ç𝑈𝐸 𝑝𝑎𝑟 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 𝑞𝑢𝑒 𝑝𝑢𝑖𝑠-𝑗𝑒 𝑝𝑜𝑢𝑟 vous?`;
  let currentIndex = 0;
 
  for (let i = 0; i < services.length; i++) {
@@ -54,7 +53,7 @@ module.exports = {
     if (messageContent.startsWith("ai")) {
       const input = messageContent.replace(/^ai\s*/, "").trim();
       const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
-      message.reply(`𝐿𝑂𝐼𝐷 𝐹𝑂𝑅𝐺𝐸𝑅  𝐵𝑂𝑇✫༒\n________________________________________\n${response}\n________________________`, messageID);
+      message.reply('╔༒═✯𝑆𝐴𝑇𝑂𝑅𝑈 𝐺𝑂𝐽𝑂 𝐵𝑂𝑇✯═༒╗\n____*____*___*___*____*___*_______*_____*_____*__\n${response}\n-------------------------------------------------------`, messageID);
     }
   }
 };
