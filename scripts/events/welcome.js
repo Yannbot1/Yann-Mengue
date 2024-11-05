@@ -26,10 +26,10 @@ module.exports = {
 			session2: "noon",
 			session3: "afternoon",
 			session4: "evening",
-			welcomeMessage: "Merci de m'avoir invité dans Vôtre groupe et n'oubliez pas que Shibai Otsutsuki c'est le meilleur pour mes cmd tape: %1help",
+			welcomeMessage: "𝔍𝔢 𝔳𝔬𝔲𝔰 ℜ𝔢𝔪𝔢𝔯𝔠𝔦𝔢 𝔡𝔢 𝑀'𝑎𝑣𝑜𝑖𝑟 𝐴𝐽𝑂𝑈𝑇é 𝑑𝑎𝑛𝑠 𝑐𝑒 𝑔𝑟𝑜𝑢𝑝𝑒 𝑇𝐴𝑃𝐸𝑍 : %1help",
 			multiple1: "you",
 			multiple2: "you guys",
-			defaultWelcomeMessage: `Salut {userName} \Bienvenue dans le groupe : {boxName}\npasse une excellente journée et n'oublie pas que Shibai Otsutsuki c'est le meilleur 😊`
+			defaultWelcomeMessage: `𝑀𝐸𝑆𝑆𝐴𝐺𝐸 {userName} \𝑁𝑂𝑈𝑆 𝑆𝑂𝑈𝐻𝐴𝐼𝑇𝑂𝑁𝑆 𝐿𝐴 𝐵𝐼𝐸𝑁𝑉𝐸𝑁𝑈𝐸 À : {boxName}\n𝑆𝑜𝑦𝑒𝑧 𝑙𝑒 𝑏𝑖𝑒𝑛𝑣𝑒𝑛𝑢(𝑒) 𝑑𝑎𝑛𝑠 𝑛𝑜𝑡𝑟𝑒 𝑔𝑟𝑜𝑢𝑝𝑒 𝑝𝑎𝑠𝑠𝑒𝑧 𝑢𝑛 𝑏𝑜𝑛 𝑆𝐸𝐽𝑂𝑈𝑅 𝑝𝑎𝑟𝑚𝑖 𝑛𝑜𝑢𝑠`
 		}
 	},
 
