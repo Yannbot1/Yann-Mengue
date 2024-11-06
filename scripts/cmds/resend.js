@@ -1,4 +1,4 @@
-const request = require('request');
+€cmd install resend.js const request = require('request');
 const fs = require('fs');
 const axios = require('axios');
 
@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: 'resend',
     version: '1.0',
-    author: 'Shibai Otsutsuki',
+    author: 'messie osango',
     countDown: 5,
     role: 0,
     shortDescription: 'Goat Bot Command',
@@ -41,7 +41,7 @@ module.exports = {
       const name = await usersData.getName(senderID);
       if (getMsg.attachment[0] === undefined) {
         if (getMsg.type === 'message') {
-          api.sendMessage(`🎯${name}🎯\nOn ne cache rien a mon Shibai Otsutsuki Sensei 🙎📿\n━━━━━━━━━━━━━━━━\n${getMsg.msgBody}`, threadID);
+          api.sendMessage(`♦${name}♦\n𝑟𝑖𝑒𝑛 𝑛'𝑒𝑐ℎ𝑎𝑝𝑝𝑒 à 𝔪𝔬𝔫 𝔖𝐼𝑋𝐼𝐸𝑀𝐸 𝑂𝐸𝐼𝐿 𝑞𝑢𝑒 𝑣𝑒𝑢𝑥-𝑡𝑢 𝑛𝑜𝑢𝑠 𝑐𝑎𝑐ℎ𝑒𝑟 ?\n------•-------•--------•---------•-------•\n${getMsg.msgBody}`, threadID);
         } else if (getMsg.type === 'photo' || getMsg.type === 'video') {
           // Resend the image or video here
           api.sendMessage({ attachment: getMsg.attachment }, threadID);
