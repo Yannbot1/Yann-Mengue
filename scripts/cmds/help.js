@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `╔══════✯═════╗\n✰ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ✰\n╚═════✯══════╝`; // replace with your name 
+      msg += `╔═════۩✯★✯۩═════╗\n✰ 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 ✰\n╚═════۩✯★✯۩═════╝`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -46,7 +46,7 @@ module.exports = {
 
       Object.keys(categories).forEach((category) => {
         if (category !== "info") {
-          msg += `\n╭─────✯────\n│ 『  ${category.toUpperCase()}  』`;
+          msg += `\n╭─★────✯───★─\n│ 『  ${category.toUpperCase()}  』`;
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
@@ -54,7 +54,7 @@ module.exports = {
             msg += `\n│ ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
-          msg += `\n╰────✯────ꔪ`;
+          msg += `\n╰──★──✯──★──✯`;
         }
       });
 
@@ -83,7 +83,7 @@ https://www.facebook.com/profile.php?id=61568305950691
         const guideBody = configCommand.guide?.en || "No guide available.";
         const usage = guideBody.replace(/{p}/g, prefix).replace(/{n}/g, configCommand.name);
 
-        const response = `╭── NAME ────⭓
+        const response = `╭─★─ NAME ──★──✯
   │ ${configCommand.name}
   ├── INFO
   │ Description: ${longDescription}
@@ -98,7 +98,7 @@ https://www.facebook.com/profile.php?id=61568305950691
   ├── Notes
   │ The content inside <XXXXX> can be changed
   │ The content inside [a|b|c] is a or b or c
-  ╰━━━━━━━❖`;
+  ╰━━★━━━★━━✯`;
 
         await message.reply(response);
       }
