@@ -53,7 +53,9 @@ module.exports = {
     if (messageContent.startsWith("ai")) {
       const input = messageContent.replace(/^ai\s*/, "").trim();
       const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
-      message.reply(`༒✫𝑆𝐴𝑇𝑂𝑅𝑈༺✯༻ 𝐺𝑂𝐽𝑂 𝐵𝑂𝑇✫༒\n___•____•___•___•__•___•___•__•\n${response}\n-----°------°------°----------°-----°------°`, messageID);
+      message.reply(`༒✫𝑆𝐴𝑇𝑂𝑅𝑈✯ 𝐺𝑂𝐽𝑂 𝐵𝑂𝑇༒\
+
+╔═══✯۩✯۞✯۩✯═══╗ \n${response}\╚═══✯۩✯۞✯۩✯═══╝°`, messageID);
     }
   }
 };
