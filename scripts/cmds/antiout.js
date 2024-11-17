@@ -1,4 +1,4 @@
-€cmd install antiout.js module.exports = {
+ module.exports = {
   config: {
     name: "antiout",
     version: "1.0",
