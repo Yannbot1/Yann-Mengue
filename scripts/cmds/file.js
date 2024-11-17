@@ -1,4 +1,4 @@
-€cmd install file.js const fs = require('fs');
+ const fs = require('fs');
 
 module.exports = {
   config: {
