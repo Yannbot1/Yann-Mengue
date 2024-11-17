@@ -1,4 +1,4 @@
-const { config } = global.GoatBot;
+ const { config } = global.GoatBot;
 const { writeFileSync } = require("fs-extra");
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
 			removed: "✅ | Removed admin role of %1 users:\n%2",
 			notAdmin: "⚠️ | %1 users don't have admin role:\n%2",
 			missingIdRemove: "⚠️ | Please enter ID or tag user to remove admin role",
-			listAdmin: "👑 | List of admins Shibai Otsutsuki all:\n%1"
+			listAdmin: "♣------♣ | 𝐿𝐴 𝐿𝐼𝑆𝑇𝐸 𝐷𝐸 𝑀𝐸𝑆 𝐴𝐷𝑀𝐼𝑁𝐼𝑆𝑇𝑅𝐴𝑇𝐸𝑈𝑅𝑆:\n%1"
 		}
 	},
 
