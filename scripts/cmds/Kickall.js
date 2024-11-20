@@ -1,4 +1,4 @@
-€cmd install kickall.js module.exports = {
+module.exports = {
   config: {
     name: "kickall",
     version: "1.0",
