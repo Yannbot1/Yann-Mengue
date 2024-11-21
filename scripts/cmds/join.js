@@ -1,4 +1,4 @@
-€cmd install join.js   module.exports = {
+ module.exports = {
   config: {
     name: "join",
     aliases: ['addme', 'joinme'],
