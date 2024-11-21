@@ -1,4 +1,4 @@
-€cmd install out.js module.exports = {
+module.exports = {
 	config: {
 		name: "out",
 		version: "1.0",
