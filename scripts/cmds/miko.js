@@ -15,10 +15,10 @@ module.exports.run = async function ({ api, event, args }) {
  const content = encodeURIComponent(args.join(" "));
 
  if (!content) {
-	return api.sendMessage("🟢 Salut! moi c'est SHIBAI BOT une Intelligence Artificielle créer par Shibai Otsutsuki mon maître comment puis-je vous aider aujourd'hui ?", event.threadID, event.messageID);
+	return api.sendMessage("𝑆𝐴𝐿𝑈𝑇 𝐌𝐨𝐢 𝐜'𝐞𝐬𝐭 𝐬𝐚𝐭𝐨𝐫𝐮 𝐠𝐨𝐣𝐨 𝐛𝐨𝐭 ", event.threadID, event.messageID);
  }
 
- api.sendMessage("🟡 Shibai Otsutsuki à la rescousse 🏃‍♀️...", event.threadID, event.messageID); 
+ api.sendMessage("𝐒𝐀𝐓𝐎𝐑𝐔 𝐆𝐎𝐉𝐎 𝐄𝐒𝐓 𝐏𝐑𝐄𝐓 À 𝐕𝐎𝐔𝐒 𝐀𝐈𝐃𝐄𝐑 ", event.threadID, event.messageID); 
 
  const apiUrl = `https://bluerepoapislasttry.onrender.com/hercai?content=${content}`;
 
