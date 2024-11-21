@@ -1,150 +1,60 @@
- const axios = require("axios");
-const path = require("path");
-const fs = require("fs-extra");
+ const axios = require('axios');
 
-const Prefixes = ["ai", "Yau5", "Ai"];
+async function fetchFromAI(url, params) {
+ try {
+ const response = await axios.get(url, { params });
+ return response.data;
+ } catch (error) {
+ console.error(error);
+ return null;
+ }
+}
 
-global.chatHistory = {};
+async function getAIResponse(input, userName, userId, messageID) {
+ const services = [
+ { url: 'https://ai-chat-gpt-4-lite.onrender.com/api/hercai', params: { question: input } }
+ ];
 
+ let response = ` 𝑆𝐴𝐿𝑈𝑇, 𝙹𝙴 𝐒𝐔𝐈𝐒 𝐋'𝐢𝐧𝐭𝐞𝐥𝐥𝐢𝐠𝐞𝐧𝐜𝐞 𝐀𝐫𝐭𝐢𝐟𝐢𝐜𝐢𝐞𝐥𝐥𝐞 Ç𝔬𝔫𝔠𝔲𝔢 𝑃𝑎𝑟 𝐌𝐄𝐒𝐒𝐈𝐄 𝐎𝐒𝐀𝐍𝐆𝐎 𝑄𝑢𝑒 𝑝𝑢𝑖𝑠-𝑗𝑒 𝑃𝑜𝑢𝑟 𝑣𝑜𝑢𝑠 ?`;
+ let currentIndex = 0;
+
+ for (let i = 0; i < services.length; i++) {
+ const service = services[currentIndex];
+ const data = await fetchFromAI(service.url, service.params);
+ if (data && (data.gpt4 || data.reply || data.response)) {
+ response = data.gpt4 || data.reply || data.response;
+ break;
+ }
+ currentIndex = (currentIndex + 1) % services.length; // Passer au service suivant
+ }
+
+ return { response, messageID };
+}
 module.exports = {
   config: {
-    name: "ai",
-    version: "2.2.4",
-    author: "Hassan", // do not change
+    name: 'ai',
+    author: 'Arn',
     role: 0,
-    category: "ai",
-    shortDescription: {
-      en: "Asks AI for an answer.",
-    },
-    longDescription: {
-      en: "Asks AI for an answer based on the user prompt.",
-    },
-    guide: {
-      en: `{pn} [prompt]
-
-Example usage:
-1. To ask the AI a question:
-   - {pn} What is the meaning of life?
-
-2. To fetch images:
-   - {pn} etc, images image of 
-   - {pn} AI send me images of nature.
-
-3. To fetch waifu images:
-   - {pn} waifu maid
-   - {pn} waifu raiden-shogun
-
-Available versatile waifu tags:
-maid, waifu, marin-kitagawa, mori-calliope, raiden-shogun, oppai, selfies, uniform, kamisato-ayaka
-
-Available NSFW waifu tags:
-ass, hentai, milf, oral, paizuri, ecchi, ero`
-    },
+    category: 'ai',
+    shortDescription: 'ai to ask anything',
   },
-  onStart: async function ({ message, api, event, args }) {
-    // Initialization logic if needed
-  },
-  onChat: async function ({ api, event, args, message }) {
-    try {
-      const prefix = Prefixes.find(
-        (p) => event.body && event.body.toLowerCase().startsWith(p)
-      );
-
-      if (!prefix) {
-        return;
-      }
-
-      let prompt = event.body.substring(prefix.length).trim();
-
-      if (!global.chatHistory[event.senderID]) {
-        global.chatHistory[event.senderID] = [];
-      }
-
-
-      if (event.type === "message_reply" && global.chatHistory[event.senderID].length > 0) {
-        const lastPrompt = global.chatHistory[event.senderID].slice(-1)[0];
-        prompt = lastPrompt + " " + prompt;
-      }
- global.chatHistory[event.senderID].push(prompt);
-
-      let numberImages = 6; // Default to 6 images
-      const match = prompt.match(/-(\d+)$/);
-
-      if (match) {
-        numberImages = Math.min(parseInt(match[1], 10), 8); // Max 8 images
-        prompt = prompt.replace(/-\d+$/, "").trim(); // Remove the number part from prompt
-      }
-
-      if (prompt === "") {
-        await api.sendMessage(
-          "SATORU Gojo  𝘽𝙊𝙏\───────────・𝑆𝐴𝐿𝑈𝑇, 𝔍𝔢 𝙨𝙪𝙞𝙨 𝑙'𝑖𝑛𝑡𝑒𝑙𝑙𝑖𝑔𝑒𝑛𝑐𝑒 𝑎𝑟𝑡𝑖𝑓𝑖𝑐𝑖𝑒𝑙𝑙𝑒 𝐶𝑂𝑁Ç𝑈𝐸 𝑝𝑎𝑟 𝑀𝐸𝑆𝑆𝐼𝐸 𝑂𝑆𝐴𝑁𝐺𝑂 𝑄𝑢𝑒 𝑝𝑢𝑖𝑠-𝑗𝑒 𝑝𝑜𝑢𝑟 𝑣𝑜𝑢𝑠 ?",
-          event.threadID
-        );
-        return;
-      }
-
-      api.setMessageReaction("âŒ›", event.messageID, () => {}, true);
-
-      const response = await axios.get(
-        `https://over-ai-yau-5001-center-hassan.vercel.app/ai?prompt=${encodeURIComponent(prompt)}`
-      );
-
-      if (response.status !== 200 || !response.data || !response.data.response) {
-        throw new Error("Unable to respond. API error or no data returned.");
-      }
-
-      const messageText = response.data.response;
-
-      const urls = messageText.match(/https?:\/\/\S+\.(jpg|jpeg|png|gif)/gi);
-
-      if (urls && urls.length > 0) {
-        const imgData = [];
-        const limitedUrls = urls.slice(0, numberImages);
-
-        for (let i = 0; i < limitedUrls.length; i++) {
-          try {
-            const imgResponse = await axios.get(limitedUrls[i], {
-              responseType: "arraybuffer",
-            });
-            const imgPath = path.join(__dirname, "cache", `image_${i + 1}.jpg`);
-            await fs.outputFile(imgPath, imgResponse.data);
-            imgData.push(fs.createReadStream(imgPath));
-          } catch (imgError) {
-            console.error("Error fetching image:", imgError);
-            await api.sendMessage(
-              `Failed to load image from ${limitedUrls[i]}.`,
-              event.threadID
-            );
-          }
-        }
-
-        if (imgData.length > 0) {
-          await api.sendMessage(
-            {
-              body: `HERE IS YOUR RESULTSâœ…`,
-              attachment: imgData,
-            },
-            event.threadID,
-            event.messageID
-          );
-          await fs.remove(path.join(__dirname, "cache"));
-        } else {
-          await api.sendMessage("No images were fetched successfully.", event.threadID);
-        }
-      } else {
-        await message.reply(messageText);
-      }
-
-      api.setMessageReaction("âœ…", event.messageID, () => {}, true);
-    } catch (error) {
-      console.error("Error in onChat:", error);
-      await api.sendMessage(
-        `Failed to get answer: ${error.message}`,
-        event.threadID
-      );
+  onStart: async function ({ api, event, args }) {
+    const input = args.join(' ').trim();
+    if (!input) {
+      api.sendMessage(`SATORU II\n━━━━━━━━━━━━━━━━\nPlease provide a question or statement.\n━━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+      return;
     }
+
+    const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
+    api.sendMessage(`MESSIE OSANGO' \n━━━━━━━━━━━━━━━━\n${response}\n━━━━━━━━━━━━━━━━`, event.threadID, messageID);
   },
-  onReply: async function ({ api, message, event, args }) {
-    return this.onChat({ api, message, event, args });
-  },
+  onChat: async function ({ event, message }) {
+    const messageContent = event.body.trim().toLowerCase();
+    if (messageContent.startsWith("ai")) {
+      const input = messageContent.replace(/^ai\s*/, "").trim();
+      const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
+      message.reply(`༒✫𝑆𝐴𝑇𝑂𝑅𝑈༺✯༻ 𝐺𝑂𝐽𝑂 𝐵𝑂𝑇✫༒\n▬°▬▬°▬°▬°▬°▬°°▬°▬\n${response}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬\n𝐿𝑎 𝑟𝑒𝑝𝑜𝑛𝑠𝑒 𝑉𝑜𝑡𝑟𝑒  𝑄𝑢𝑒𝑠𝑡𝑖𝑜𝑛  \▬▬▬▬▬▬▬▬▬▬▬▬▬`, messageID); 
+api.setMessageReaction("💬", event.messageID, () => {}, true);
+    }
+  }
 };
