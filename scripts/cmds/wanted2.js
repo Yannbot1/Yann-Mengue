@@ -1,4 +1,4 @@
-€cmd install wanted2.js const DIG = require("discord-image-generation");
+ const DIG = require("discord-image-generation");
 const fs = require("fs-extra");
 
 module.exports = {
