@@ -14,7 +14,7 @@ module.exports = {
   },
 
   onStart: async function ({ message, args, api, event }) {
-    const permission = ["61565181961049"];
+    const permission = ["61569015310350"];
     if (!permission.includes(event.senderID)) {
       return api.sendMessage("𝐓𝐔 𝐍'𝐞𝐬 𝐩𝐚𝐬 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐭𝐞𝐮𝐫 𝐝𝐞 𝐜𝐞 𝐛𝐨𝐭 ' ", event.threadID, event.messageID);
     }
