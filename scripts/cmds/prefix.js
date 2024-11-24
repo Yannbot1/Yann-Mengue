@@ -1,4 +1,4 @@
-const fs = require("fs-extra");
+ const fs = require("fs-extra");
 const { utils } = global;
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
       confirmThisThread: "Please react to this message to confirm change prefix in your box chat",
       successGlobal: "Changed prefix of system bot to: %1",
       successThisThread: "Changed prefix in your box chat to: %1",
-      myPrefix: "𝐥𝐞 𝐩𝐫𝐞𝐟𝐢𝐱 𝑄𝑈𝐸 𝐽'𝐴𝑖 𝐴𝐶𝑇𝑈𝐸𝐿𝐿𝐸𝑀𝐸𝑁𝑇 𝐸𝑆𝑇  {%2}\n𝐽𝐸 𝐹𝐸𝑅𝐴𝐼 𝐷𝐸 𝑀𝑂𝑀 𝑀𝐼𝐸𝑈𝑋 𝑃𝑂𝑈𝑅 𝑉𝑂𝑈𝑆   :\n\n━━ 🌫️ |  𝕾𝐴𝑇𝑂𝑅𝑈 𝐺𝑂𝐽𝑂 𝐵𝑂𝑇 |-------->>https://www.facebook.com/profile.php?id=61568305950691 𝐋𝐞 𝐥𝐢𝐞𝐧 𝐝𝐞 𝐦𝐚 𝐩𝐚𝐠𝐞 𝐟𝐚𝐜𝐞𝐛𝐨𝐨k\n𝐍'𝐨𝐮𝐛𝐥𝐢𝐞𝐳 𝐩𝐚𝐬 𝐪𝐮𝐞 [ %2] 𝐞𝐬𝐭 𝐦𝐨𝐧 𝐩𝐫𝐞𝐟𝐢𝐱 \n\n𝐸𝐶𝑅𝐼𝑉𝐸𝑍  €𝐡𝐞𝐥𝐩 𝑃𝑂𝑈𝑅 𝐴𝑉𝑂𝐼𝑅 𝐿𝐴 𝐿𝐼𝑆𝑇𝐸 𝐷𝐸 𝑀𝐸𝑆 𝐶𝑀𝐷𝑆 "
+      myPrefix: "╭━━━━━━━━━━━━━━┑\n𝐥𝐞 𝐩𝐫𝐞𝐟𝐢𝐱 𝑄𝑈𝐸 𝐽'𝐴𝑖 𝐴𝐶𝑇𝑈𝐸𝐿𝐿𝐸𝑀𝐸𝑁𝑇 𝐸𝑆𝑇  { %2 }\n𝐽𝐸 𝐹𝐸𝑅𝐴𝐼 𝐷𝐸 𝑀𝑂𝑀 𝑀𝐼𝐸𝑈𝑋 𝑃𝑂𝑈𝑅 𝑉𝑂𝑈𝑆   :\n\n◆━━━━━━✦━━━━━━━━◆\n 𝐀𝐁𝐎𝐍𝐍𝐄𝐙 𝐕𝐎𝐔𝐒\n◆━━━━✦━━━━━◆\nhttps://www.facebook.com/profile.php?id=61568305950691\n_______________________\n 𝐋𝐞 𝐥𝐢𝐞𝐧 𝐝𝐞 𝐦𝐚 𝐩𝐚𝐠𝐞 𝐟𝐚𝐜𝐞𝐛𝐨𝐨k\n_____________________\n𝐍'𝐨𝐮𝐛𝐥𝐢𝐞𝐳 𝐩𝐚𝐬 𝐪𝐮𝐞 [  %2  ] 𝐞𝐬𝐭 𝐦𝐨𝐧 𝐩𝐫𝐞𝐟𝐢𝐱 \n_________________________\n𝐸𝐶𝑅𝐼𝑉𝐸𝑍  €𝐡𝐞𝐥𝐩 𝑃𝑂𝑈𝑅 𝐴𝑉𝑂𝐼𝑅 𝐿𝐴 𝐿𝐼𝑆𝑇𝐸 𝐷𝐸 𝑀𝐸𝑆 𝐶𝑀𝐷𝑆\n╰━━━━━━━━━━━━━━┙ "
     }
   },
 
